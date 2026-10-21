@@ -9,7 +9,7 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | MCP URL | `https://mcp.nexllm.ai/mcp` |
 | MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
 | Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
-| Version | **v0.1.1** (this tag) |
+| Version | **v0.1.2** (this tag) |
 | Not included | Video, audio, 3D, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
@@ -26,12 +26,12 @@ Every generate skill **requires `list_models` before hardcoding an ID**.
 ## Quick install
 
 1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration).
-2. Clone this pack at tag **`v0.1.1`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+2. Clone this pack at tag **`v0.1.2`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
 
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.1
+git checkout v0.1.2
 ```
 
 ### Claude Code
@@ -49,14 +49,20 @@ mkdir -p ~/.claude/skills
 cp -R skills/* ~/.claude/skills/
 ```
 
-### Cursor
+## Install in Cursor
+
+Still requires NexLLM MCP connected at `https://mcp.nexllm.ai/mcp` (see [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration)).
+
+**Preferred (Agents / web):** Cursor **Customize** → import plugin/skills **From GitHub**:
+
+`https://github.com/NexLLMSupport/nexllm-skills`
+
+**Desktop optional:** copy each folder under `skills/` into `~/.cursor/skills/<name>/`, then **Settings → Agents → Sync Skills for Cloud Agents**.
 
 ```bash
-mkdir -p .cursor/skills
-cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm skills/product-hero-image .cursor/skills/
+mkdir -p ~/.cursor/skills
+cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm skills/product-hero-image ~/.cursor/skills/
 ```
-
-Or `~/.cursor/skills/` for all projects.
 
 ### Claude (Desktop / claude.ai)
 
@@ -80,6 +86,7 @@ If you ask for video, voiceover, or 3D, the foundation skill tells the agent to 
 nexllm-skills/
   README.md
   LICENSE
+  .cursor-plugin/plugin.json
   docs/install.md
   skills/
     nexllm-mcp/SKILL.md

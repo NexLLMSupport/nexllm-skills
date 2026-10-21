@@ -1,0 +1,13 @@
+{
+  "name": "nexllm-skills",
+  "version": "0.1.2",
+  "description": "NexLLM MCP agent skills for model discovery, pricing, text generation, and product hero images.",
+  "author": {
+    "name": "NexLLMSupport",
+    "email": "support@nexllm.ai"
+  },
+  "homepage": "https://docs.nexllm.ai/integrations/mcp-integration",
+  "repository": "https://github.com/NexLLMSupport/nexllm-skills",
+  "license": "MIT",
+  "keywords": ["nexllm", "mcp", "skills", "image", "text"]
+}
