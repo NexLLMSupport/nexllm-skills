@@ -14,7 +14,7 @@ Outcome skill: produce or rewrite text through the NexLLM gateway. Text only —
 
 - NexLLM MCP connected (`https://mcp.nexllm.ai/mcp`)
 - Wallet balance for `generate_text`
-- See `nexllm-mcp` and https://docs.nexllm.ai/tools/mcp
+- See `nexllm-mcp` and https://docs.nexllm.ai/integrations/mcp-integration
 
 ## Tools
 

@@ -1,6 +1,16 @@
 # Install nexllm-skills
 
-Copy these skill folders into wherever your agent already loads Agent Skills. Connect [NexLLM MCP](https://docs.nexllm.ai/tools/mcp) first (`https://mcp.nexllm.ai/mcp`); skills without MCP can only describe steps, not run them.
+Copy these skill folders into wherever your agent already loads Agent Skills. Connect [NexLLM MCP](https://docs.nexllm.ai/integrations/mcp-integration) first (`https://mcp.nexllm.ai/mcp`); skills without MCP can only describe steps, not run them.
+
+## Get the pack
+
+```bash
+git clone https://github.com/NexLLMSupport/nexllm-skills.git
+cd nexllm-skills
+git checkout v0.1.1
+```
+
+Then use the paths below (`/path/to/nexllm-skills` = this clone).
 
 ## Before you start
 
@@ -50,11 +60,11 @@ cp -R /path/to/nexllm-skills/skills/* ~/.cursor/skills/
 
 Ask in chat, or use Cursor’s skill picker (`/` / Skills UI, depending on build) and select by skill name.
 
-Ensure MCP is configured to `https://mcp.nexllm.ai/mcp` ([MCP docs](https://docs.nexllm.ai/tools/mcp)).
+Ensure MCP is configured to `https://mcp.nexllm.ai/mcp` ([MCP docs](https://docs.nexllm.ai/integrations/mcp-integration)).
 
 ## Claude (Desktop / claude.ai)
 
-1. Add the NexLLM custom connector — see [MCP integration](https://docs.nexllm.ai/tools/mcp) (Claude tab).
+1. Add the NexLLM custom connector — see [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration) (Claude tab).
 2. Open **Customize → Skills** (label may vary by client version).
 3. Upload or attach each folder under `skills/` (each must contain `SKILL.md`).
 4. Ask for the outcome in chat.
@@ -88,4 +98,4 @@ Replace the skill folders with a newer copy of this pack. After MCP reconnect or
 ## Related
 
 - Pack overview: [../README.md](../README.md)
-- MCP connect: https://docs.nexllm.ai/tools/mcp
+- MCP connect: https://docs.nexllm.ai/integrations/mcp-integration

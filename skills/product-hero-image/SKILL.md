@@ -14,7 +14,7 @@ Outcome skill: one strong still image for product / marketing use. Text and imag
 
 - NexLLM MCP connected (`https://mcp.nexllm.ai/mcp`)
 - Wallet balance for `generate_image`
-- See `nexllm-mcp` and https://docs.nexllm.ai/tools/mcp
+- See `nexllm-mcp` and https://docs.nexllm.ai/integrations/mcp-integration
 
 ## Tools
 

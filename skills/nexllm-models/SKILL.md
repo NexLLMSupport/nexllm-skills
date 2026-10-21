@@ -12,7 +12,7 @@ Discover live model IDs and pricing for the connected NexLLM key. Do not generat
 
 ## Prerequisites
 
-NexLLM MCP connected (`https://mcp.nexllm.ai/mcp`). See skill `nexllm-mcp` and https://docs.nexllm.ai/tools/mcp.
+NexLLM MCP connected (`https://mcp.nexllm.ai/mcp`). See skill `nexllm-mcp` and https://docs.nexllm.ai/integrations/mcp-integration.
 
 ## Tools
 

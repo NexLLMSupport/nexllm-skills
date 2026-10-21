@@ -7,8 +7,9 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | | |
 | --- | --- |
 | MCP URL | `https://mcp.nexllm.ai/mcp` |
-| MCP docs | https://docs.nexllm.ai/tools/mcp |
+| MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
 | Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
+| Version | **v0.1.1** (this tag) |
 | Not included | Video, audio, 3D, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
@@ -24,13 +25,19 @@ Every generate skill **requires `list_models` before hardcoding an ID**.
 
 ## Quick install
 
-1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/tools/mcp).
-2. Copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration).
+2. Clone this pack at tag **`v0.1.1`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+
+```bash
+git clone https://github.com/NexLLMSupport/nexllm-skills.git
+cd nexllm-skills
+git checkout v0.1.1
+```
 
 ### Claude Code
 
 ```bash
-# from a clone or unpack of this repo
+# from the clone above
 mkdir -p .claude/skills
 cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm skills/product-hero-image .claude/skills/
 ```
@@ -53,7 +60,7 @@ Or `~/.cursor/skills/` for all projects.
 
 ### Claude (Desktop / claude.ai)
 
-Connect the [NexLLM MCP](https://docs.nexllm.ai/tools/mcp) custom connector, then upload or attach these skill folders under **Customize → Skills** (wording may vary). There is no marketplace listing for this pack yet — use the files from this repo.
+Connect the [NexLLM MCP](https://docs.nexllm.ai/integrations/mcp-integration) custom connector, then upload or attach these skill folders under **Customize → Skills** (wording may vary). There is no marketplace listing for this pack yet — use the files from this repo.
 
 More detail: [docs/install.md](docs/install.md).
 

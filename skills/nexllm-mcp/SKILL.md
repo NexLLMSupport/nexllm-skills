@@ -17,7 +17,7 @@ Foundation skill for every NexLLM outcome. Skills are recipes; NexLLM MCP is wha
 - OAuth completed with an API-key paste on `connect.nexllm.ai`
 - Wallet balance if calling `generate_text` or `generate_image`
 
-Docs: https://docs.nexllm.ai/tools/mcp
+Docs: https://docs.nexllm.ai/integrations/mcp-integration
 
 ## Tools (only these)
 
@@ -92,7 +92,7 @@ Handle **both** surfaces:
 2. Call `model_pricing` when the user cares about cost; if empty for that model, warn and ask before generating.
 3. Pass the **exact** model `id` from discovery into `generate_text` or `generate_image`.
 4. Parse JSON-in-text results; for images, use `data[].url` or `data[].b64_json` as above.
-5. If MCP is not connected, say so and point at https://docs.nexllm.ai/tools/mcp — do not pretend a call succeeded.
+5. If MCP is not connected, say so and point at https://docs.nexllm.ai/integrations/mcp-integration — do not pretend a call succeeded.
 6. If the user asks for **video, audio, music, or 3D**, refuse clearly: those MCP tools are not available yet.
 
 ## Related skills
