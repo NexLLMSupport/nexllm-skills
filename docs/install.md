@@ -7,7 +7,7 @@ Copy these skill folders into wherever your agent already loads Agent Skills. Co
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.1
+git checkout v0.1.3
 ```
 
 Then use the paths below (`/path/to/nexllm-skills` = this clone).
