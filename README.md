@@ -4,12 +4,14 @@ Thin **Agent Skills** pack for [NexLLM](https://www.nexllm.ai) — outcome recip
 
 Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect MCP first, then drop these folders where your agent loads skills.
 
+**Discovery paths:** Cloud Agents / project checkouts load skills from `.cursor/skills/` (and `.agents/skills/`). The Cursor plugin pack continues to use `skills/` plus `.cursor-plugin/plugin.json`. Keep both trees in sync for this pack.
+
 | | |
 | --- | --- |
 | MCP URL | `https://mcp.nexllm.ai/mcp` |
 | MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
 | Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
-| Version | **v0.1.2** (this tag) |
+| Version | **v0.1.3** (this tag) |
 | Not included | Video, audio, 3D, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
@@ -26,12 +28,12 @@ Every generate skill **requires `list_models` before hardcoding an ID**.
 ## Quick install
 
 1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration).
-2. Clone this pack at tag **`v0.1.2`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+2. Clone this pack at tag **`v0.1.3`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
 
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.2
+git checkout v0.1.3
 ```
 
 ### Claude Code
@@ -57,7 +59,7 @@ Still requires NexLLM MCP connected at `https://mcp.nexllm.ai/mcp` (see [MCP int
 
 `https://github.com/NexLLMSupport/nexllm-skills`
 
-**Desktop optional:** copy each folder under `skills/` into `~/.cursor/skills/<name>/`, then **Settings → Agents → Sync Skills for Cloud Agents**.
+**Desktop optional:** copy each folder under `skills/` into `~/.cursor/skills/<name>/`, then **Settings → Agents → Sync Skills for Cloud Agents**. For Cloud Agents that clone this repo, skills under `.cursor/skills/` are discovered from the project tree.
 
 ```bash
 mkdir -p ~/.cursor/skills
@@ -88,7 +90,12 @@ nexllm-skills/
   LICENSE
   .cursor-plugin/plugin.json
   docs/install.md
-  skills/
+  skills/                    # plugin pack (marketplace / From GitHub plugin)
+    nexllm-mcp/SKILL.md
+    nexllm-models/SKILL.md
+    draft-with-nexllm/SKILL.md
+    product-hero-image/SKILL.md
+  .cursor/skills/            # Cloud Agents / project discovery
     nexllm-mcp/SKILL.md
     nexllm-models/SKILL.md
     draft-with-nexllm/SKILL.md
