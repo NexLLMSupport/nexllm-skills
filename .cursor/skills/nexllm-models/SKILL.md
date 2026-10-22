@@ -35,7 +35,7 @@ Do not call `generate_text` or `generate_image` in this skill unless the user cl
 4. For those IDs, call `model_pricing` when the user asked about cost or “cheapest”.
 5. Pricing shape when present: `{object:"list", data:[{model, currency, input_price_per_million, output_price_per_million}, ...]}`. Some image / unpriceable rows return **empty `data`** — say “no quote from `model_pricing`” rather than inventing a price; generation can still proceed later with a user warning.
 6. Summarize side by side: id, likely use (text vs image from heuristics), and price notes from `model_pricing` (or “unquoted”).
-7. Stop. Offer to draft text (`draft-with-nexllm`) or make an image (`product-hero-image`) only if the user wants a next step.
+7. Stop. Offer to draft text (`draft-with-nexllm`) or make an image (`product-hero-image`, `product-photography`, `photoreal-stills`, `text-in-image`, `logo-concepts`, `game-assets-2d`, `composite-scene`) only if the user wants a next step.
 
 ## Errors
 

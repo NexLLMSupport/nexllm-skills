@@ -7,7 +7,7 @@ Copy these skill folders into wherever your agent already loads Agent Skills. Co
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.3
+git checkout v0.1.4
 ```
 
 Then use the paths below (`/path/to/nexllm-skills` = this clone).
@@ -30,6 +30,12 @@ cp -R /path/to/nexllm-skills/skills/nexllm-mcp \
       /path/to/nexllm-skills/skills/nexllm-models \
       /path/to/nexllm-skills/skills/draft-with-nexllm \
       /path/to/nexllm-skills/skills/product-hero-image \
+      /path/to/nexllm-skills/skills/product-photography \
+      /path/to/nexllm-skills/skills/photoreal-stills \
+      /path/to/nexllm-skills/skills/text-in-image \
+      /path/to/nexllm-skills/skills/logo-concepts \
+      /path/to/nexllm-skills/skills/game-assets-2d \
+      /path/to/nexllm-skills/skills/composite-scene \
       .claude/skills/
 ```
 
@@ -88,7 +94,12 @@ Pair recipes with MCP tools — skills alone do not talk to NexLLM.
 | --- | --- | --- |
 | “Cheapest chat models on NexLLM?” | `nexllm-models` | `list_models`, maybe `model_pricing` |
 | “Draft a polite reply from these notes on NexLLM” | `draft-with-nexllm` | `list_models` → `generate_text` |
-| “White-background packshot of this bottle” | `product-hero-image` | `list_models` → `generate_image` |
+| “White-background packshot of this bottle” | `product-hero-image` or `product-photography` | `list_models` → `generate_image` |
+| “Photoreal street photo of a cafe at dusk” | `photoreal-stills` | `list_models` → `generate_image` |
+| “Poster with exact headline Launch Week” | `text-in-image` | `list_models` → `generate_image` |
+| “Logo concepts for a coffee brand (raster OK)” | `logo-concepts` | `list_models` → `generate_image` |
+| “Sticker-style 2D game character” | `game-assets-2d` | `list_models` → `generate_image` |
+| “Product with a person in a kitchen scene” | `composite-scene` | `list_models` → `generate_image` |
 | “Make a vertical launch video with VO” | `nexllm-mcp` (refuse) | no fake tool calls |
 
 ## Updating
