@@ -1,7 +1,7 @@
 {
   "name": "nexllm-skills",
-  "version": "0.1.2",
-  "description": "NexLLM MCP agent skills for model discovery, pricing, text generation, and product hero images.",
+  "version": "0.1.4",
+  "description": "NexLLM MCP agent skills for model discovery, pricing, text generation, and image outcomes (product, photoreal, text-in-image, logo concepts, 2D assets, composite scenes).",
   "author": {
     "name": "NexLLMSupport",
     "email": "support@nexllm.ai"

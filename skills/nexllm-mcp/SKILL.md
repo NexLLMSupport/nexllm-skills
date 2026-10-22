@@ -100,3 +100,9 @@ Handle **both** surfaces:
 - `nexllm-models` — discover and compare models / pricing
 - `draft-with-nexllm` — text drafts via `generate_text`
 - `product-hero-image` — product / hero stills via `generate_image`
+- `product-photography` — studio / lifestyle / hero product stills
+- `photoreal-stills` — realistic non-stock stills
+- `text-in-image` — posters / packaging / UI with exact copy
+- `logo-concepts` — logo / icon concept rasters (not true SVG)
+- `game-assets-2d` — sprites, stickers, 2D asset stills
+- `composite-scene` — prompt-only product + subject + backdrop

@@ -34,7 +34,7 @@ Outcome skill: one strong still image for product / marketing use. Text and imag
 
 1. Call `list_models` and pick a live **image** model available to this key.
 2. **Do not rely on `category` / `capability` filters** — they may be no-ops. Choose by **id / name heuristics** from the returned list (e.g. ids containing `image`, `gpt-image`, `seedream`, `dall-e`, `flux`, etc. when present).
-3. Example families that *may* appear (always verify live — never hardcode as the only choice): gateway image IDs such as `nexllm/gpt-image-2` or other image-capable IDs returned by discovery. Never use mock IDs (`mock-nexllm-*`).
+3. Example families that *may* appear (always verify live — never hardcode as the only choice): gateway image IDs such as `nexllm/gpt-image-2` or other image-capable IDs returned by discovery. **Suggested default after discovery** when present: `byteplus/Dola-Seedream-5.0-flash`. Never use mock IDs (`mock-nexllm-*`).
 4. Optionally call `model_pricing` on the chosen ID. If `data` is **empty**, warn that there is no quote, then continue only if the user accepts wallet spend without a price.
 5. If no image model is available to the key, say so and stop. Do not fall back to a fake ID.
 
@@ -77,6 +77,14 @@ See `nexllm-mcp` for dual surfaces:
 
 - HTTP `401` / `403` (auth, scope, connection) → reconnect OAuth / check scopes `models:read`, `pricing:read`, `inference:execute`
 - Tool codes: `INSUFFICIENT_CREDITS`, `GATEWAY_KEY_INVALID`, `GATEWAY_UNAVAILABLE`, `GATEWAY_LIVE_MISCONFIGURED`, `INVALID_TOOL_INPUT`, `TOOL_EXECUTION_FAILED`
+
+## Related skills
+
+- `product-photography` — broader studio / lifestyle / hero product stills
+- `photoreal-stills` — realism-first look
+- `composite-scene` — prompt-only product + subject + backdrop
+- `text-in-image` — when exact on-image copy is required
+- `nexllm-mcp` — foundation tools and errors
 
 ## Refuse
 
