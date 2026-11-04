@@ -7,7 +7,7 @@ Copy these skill folders into wherever your agent already loads Agent Skills. Co
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.4
+git checkout v0.1.5
 ```
 
 Then use the paths below (`/path/to/nexllm-skills` = this clone).
@@ -36,6 +36,7 @@ cp -R /path/to/nexllm-skills/skills/nexllm-mcp \
       /path/to/nexllm-skills/skills/logo-concepts \
       /path/to/nexllm-skills/skills/game-assets-2d \
       /path/to/nexllm-skills/skills/composite-scene \
+      /path/to/nexllm-skills/skills/seedream-pro-layouts \
       .claude/skills/
 ```
 
@@ -100,6 +101,7 @@ Pair recipes with MCP tools — skills alone do not talk to NexLLM.
 | “Logo concepts for a coffee brand (raster OK)” | `logo-concepts` | `list_models` → `generate_image` |
 | “Sticker-style 2D game character” | `game-assets-2d` | `list_models` → `generate_image` |
 | “Product with a person in a kitchen scene” | `composite-scene` | `list_models` → `generate_image` |
+| “Poster layout with three products and a headline” | `seedream-pro-layouts` | `list_models` → `generate_image` |
 | “Make a vertical launch video with VO” | `nexllm-mcp` (refuse) | no fake tool calls |
 
 ## Updating

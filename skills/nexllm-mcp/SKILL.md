@@ -106,3 +106,4 @@ Handle **both** surfaces:
 - `logo-concepts` — logo / icon concept rasters (not true SVG)
 - `game-assets-2d` — sprites, stickers, 2D asset stills
 - `composite-scene` — prompt-only product + subject + backdrop
+- `seedream-pro-layouts` — layout / multi-element / poster-like stills; prefer Seedream pro

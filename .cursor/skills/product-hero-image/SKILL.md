@@ -84,6 +84,7 @@ See `nexllm-mcp` for dual surfaces:
 - `photoreal-stills` — realism-first look
 - `composite-scene` — prompt-only product + subject + backdrop
 - `text-in-image` — when exact on-image copy is required
+- `seedream-pro-layouts` — multi-element / poster-like layout instead of one hero
 - `nexllm-mcp` — foundation tools and errors
 
 ## Refuse
