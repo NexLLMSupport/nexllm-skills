@@ -69,6 +69,8 @@ or `data: [{ "b64_json": "..." }]`. Parse JSON; prefer `url`. Arguments: `model`
 ## Related skills
 
 - `product-photography` / `product-hero-image` — product / ecommerce framing
+- `gpt-image-25-precision` — finer detail when GPT Image 2.5 is listed
+- `image-edit-with-nexllm` — prompt-only revise (new generation, not a mask)
 - `text-in-image` — when legible on-image copy is the goal instead
 - `nexllm-mcp` — foundation tools and errors
 

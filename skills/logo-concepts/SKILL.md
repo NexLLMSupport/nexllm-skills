@@ -57,6 +57,8 @@ JSON-in-text with `data[].url` or `data[].b64_json`. Arguments: `model`, `prompt
 
 - `text-in-image` — when poster/packaging copy is the focus
 - `game-assets-2d` — game/UI stickers and sprites (also raster)
+- `nano-banana-design` — design / concept stills on Gemini image when listed
+- `fast-stickers-gemini` — fast sticker / icon stills on Gemini flash when listed
 - `nexllm-mcp` — foundation tools and errors
 
 ## Errors

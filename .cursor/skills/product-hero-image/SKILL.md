@@ -82,6 +82,8 @@ See `nexllm-mcp` for dual surfaces:
 
 - `product-photography` — broader studio / lifestyle / hero product stills
 - `photoreal-stills` — realism-first look
+- `gpt-image-25-precision` — detail-heavy stills when GPT Image 2.5 is listed
+- `image-edit-with-nexllm` — prompt-only revise (new generation, not a mask)
 - `composite-scene` — prompt-only product + subject + backdrop
 - `text-in-image` — when exact on-image copy is required
 - `nexllm-mcp` — foundation tools and errors

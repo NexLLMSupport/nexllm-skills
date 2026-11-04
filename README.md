@@ -12,7 +12,7 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
 | Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
 | Version | **v0.1.4** (this tag) |
-| Not included | Video, audio, 3D, upscale/edit APIs, LoRA training, ComfyUI, marketplace plugins |
+| Not included | Video, audio, 3D, upscale/edit APIs, reference-image upload, mask/inpaint, LoRA training, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
 
@@ -28,8 +28,15 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | `skills/logo-concepts/` | `logo-concepts` | Logo / icon **concept rasters** (not true SVG) |
 | `skills/game-assets-2d/` | `game-assets-2d` | Sprites, stickers, and 2D asset stills |
 | `skills/composite-scene/` | `composite-scene` | Prompt-only product + subject + backdrop (no mask API) |
+| `skills/image-edit-with-nexllm/` | `image-edit-with-nexllm` | Prompt-only revise: a new `generate_image` with before/after instructions (no mask or upload) |
+| `skills/gpt-image-25-precision/` | `gpt-image-25-precision` | Detail-heavy stills; prefer GPT Image 2.5 flare/sunburst after discovery |
+| `skills/nano-banana-design/` | `nano-banana-design` | Design / concept stills; prefer Gemini 3 Pro image after discovery |
+| `skills/fast-stickers-gemini/` | `fast-stickers-gemini` | Fast sticker / icon / emoji stills; prefer Gemini flash image models |
+| `skills/seedream-pro-layouts/` | `seedream-pro-layouts` | Layout / multi-element / poster-like stills; prefer Seedream 5.0 pro, then lite, then flash |
 
-Every generate skill **requires `list_models` before hardcoding an ID**. After discovery, image skills suggest `byteplus/Dola-Seedream-5.0-flash` when that ID is present for the connected key.
+Every generate skill **requires `list_models` before hardcoding an ID**. A suggested default is used only when that exact id is in the live list for the connected key. Image skills from `product-hero-image` through `composite-scene` still suggest `byteplus/Dola-Seedream-5.0-flash` when present. The last five rows name their own preferred ids inside each `SKILL.md` and fall back only to another id `list_models` actually returned.
+
+Tag **v0.1.4** does not include those five skills. Plugin version stays **0.1.4**. Do not treat this tree as a `v0.1.5` release.
 
 ## Quick install
 
@@ -40,6 +47,15 @@ Every generate skill **requires `list_models` before hardcoding an ID**. After d
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
 git checkout v0.1.4
+```
+
+To smoke the five skills that are **not** in tag `v0.1.4`, stay on the default branch instead of checking out the tag, then copy those folders with the rest of `skills/`:
+
+```bash
+mkdir -p ~/.cursor/skills
+cp -R skills/image-edit-with-nexllm skills/gpt-image-25-precision \
+  skills/nano-banana-design skills/fast-stickers-gemini \
+  skills/seedream-pro-layouts ~/.cursor/skills/
 ```
 
 ### Claude Code
@@ -94,8 +110,13 @@ With MCP connected and skills installed:
 - “Studio packshot and a lifestyle shot of this bottle.”
 - “Poster with the exact headline: Launch Week.”
 - “Logo concept marks for a coffee brand (raster is fine).”
+- “Revise that still: same bottle, warmer light, no extra text.” (new generation, not a mask edit)
+- “High-detail still of the clasp and stitching.”
+- “Design concept still for a calm skincare brand.”
+- “Fast emoji-style sticker of a cat.”
+- “Poster-like layout: headline band, three products, quiet footer.”
 
-If you ask for video, voiceover, 3D, upscale pipelines, or LoRA training, the foundation skill tells the agent to refuse — those tools are not on the MCP server.
+If you ask for video, voiceover, 3D, upscale pipelines, mask/inpaint, reference-image upload, or LoRA training, the skills tell the agent to refuse — those tools are not on the MCP server.
 
 ## Layout
 
@@ -116,13 +137,18 @@ nexllm-skills/
     logo-concepts/SKILL.md
     game-assets-2d/SKILL.md
     composite-scene/SKILL.md
+    image-edit-with-nexllm/SKILL.md
+    gpt-image-25-precision/SKILL.md
+    nano-banana-design/SKILL.md
+    fast-stickers-gemini/SKILL.md
+    seedream-pro-layouts/SKILL.md
   .cursor/skills/            # Cloud Agents / project discovery
     (same folders as skills/)
 ```
 
 ## Naming note
 
-Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes).
+Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes and the later image outcomes on this tree: `image-edit-with-nexllm`, `gpt-image-25-precision`, `nano-banana-design`, `fast-stickers-gemini`, `seedream-pro-layouts`).
 
 MCP Server’s discovery sketch used shorter aliases (`nexllm-pick-model`, `nexllm-write`, `nexllm-draw`) — same outcomes, different names. **Do not rename** this pack to those aliases for v0.1; if you need mental mapping:
 

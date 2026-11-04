@@ -10,7 +10,9 @@ cd nexllm-skills
 git checkout v0.1.4
 ```
 
-Then use the paths below (`/path/to/nexllm-skills` = this clone).
+Tag **v0.1.4** does not include `image-edit-with-nexllm`, `gpt-image-25-precision`, `nano-banana-design`, `fast-stickers-gemini`, or `seedream-pro-layouts`. To smoke those, use the default branch of this repo (do not check out `v0.1.4`) and copy `skills/*`. Plugin version stays **0.1.4** until a later tag.
+
+Then use the paths below (`/path/to/nexllm-skills` = this clone). The named `cp` list under Claude Code is the **v0.1.4** set. On the default branch, `cp -R /path/to/nexllm-skills/skills/*` picks up the five new folders too.
 
 ## Before you start
 
@@ -100,6 +102,12 @@ Pair recipes with MCP tools — skills alone do not talk to NexLLM.
 | “Logo concepts for a coffee brand (raster OK)” | `logo-concepts` | `list_models` → `generate_image` |
 | “Sticker-style 2D game character” | `game-assets-2d` | `list_models` → `generate_image` |
 | “Product with a person in a kitchen scene” | `composite-scene` | `list_models` → `generate_image` |
+| “Revise that still: warmer light, same bottle” | `image-edit-with-nexllm` | `list_models` → `generate_image` (new still; refuse mask/upload) |
+| “High-detail still of the clasp and stitching” | `gpt-image-25-precision` | `list_models` → `generate_image` |
+| “Design concept still for a skincare brand” | `nano-banana-design` | `list_models` → `generate_image` |
+| “Fast emoji-style sticker of a cat” | `fast-stickers-gemini` | `list_models` → `generate_image` |
+| “Poster layout with three products and a headline” | `seedream-pro-layouts` | `list_models` → `generate_image` |
+| “Inpaint this photo with a mask” | `image-edit-with-nexllm` (refuse) | no edit/mask/upload tool |
 | “Make a vertical launch video with VO” | `nexllm-mcp` (refuse) | no fake tool calls |
 
 ## Updating

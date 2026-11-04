@@ -57,6 +57,8 @@ JSON-in-text with `data[].url` or `data[].b64_json`. Arguments: `model`, `prompt
 ## Related skills
 
 - `logo-concepts` — brand marks (also raster concepts)
+- `fast-stickers-gemini` — faster sticker / emoji stills on Gemini flash when listed
+- `nano-banana-design` — design / concept stills on Gemini image when listed
 - `text-in-image` — when HUD/copy readability is primary
 - `nexllm-mcp` — foundation tools and errors
 
