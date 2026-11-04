@@ -11,7 +11,7 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | MCP URL | `https://mcp.nexllm.ai/mcp` |
 | MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
 | Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
-| Version | **v0.1.4** (this tag) |
+| Version | **v0.1.5** (this tag) |
 | Not included | Video, audio, 3D, upscale/edit APIs, LoRA training, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
@@ -28,18 +28,19 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | `skills/logo-concepts/` | `logo-concepts` | Logo / icon **concept rasters** (not true SVG) |
 | `skills/game-assets-2d/` | `game-assets-2d` | Sprites, stickers, and 2D asset stills |
 | `skills/composite-scene/` | `composite-scene` | Prompt-only product + subject + backdrop (no mask API) |
+| `skills/seedream-pro-layouts/` | `seedream-pro-layouts` | Layout / multi-element / poster-like stills; prefer Seedream 5.0 pro, then lite, then flash |
 
-Every generate skill **requires `list_models` before hardcoding an ID**. After discovery, image skills suggest `byteplus/Dola-Seedream-5.0-flash` when that ID is present for the connected key.
+Every generate skill **requires `list_models` before hardcoding an ID**. A suggested default is used only when that exact id is in the live list for the connected key. Image skills other than `seedream-pro-layouts` still suggest `byteplus/Dola-Seedream-5.0-flash` when present. `seedream-pro-layouts` prefers `byteplus/Dola-Seedream-5.0-pro`, then a Seedream 5.0 lite id from the same list, then flash.
 
 ## Quick install
 
 1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration).
-2. Clone this pack at tag **`v0.1.4`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+2. Clone this pack at tag **`v0.1.5`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
 
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.4
+git checkout v0.1.5
 ```
 
 ### Claude Code
@@ -50,7 +51,7 @@ mkdir -p .claude/skills
 cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm \
   skills/product-hero-image skills/product-photography skills/photoreal-stills \
   skills/text-in-image skills/logo-concepts skills/game-assets-2d \
-  skills/composite-scene .claude/skills/
+  skills/composite-scene skills/seedream-pro-layouts .claude/skills/
 ```
 
 User-scoped (every project):
@@ -75,7 +76,7 @@ mkdir -p ~/.cursor/skills
 cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm \
   skills/product-hero-image skills/product-photography skills/photoreal-stills \
   skills/text-in-image skills/logo-concepts skills/game-assets-2d \
-  skills/composite-scene ~/.cursor/skills/
+  skills/composite-scene skills/seedream-pro-layouts ~/.cursor/skills/
 ```
 
 ### Claude (Desktop / claude.ai)
@@ -94,6 +95,7 @@ With MCP connected and skills installed:
 - “Studio packshot and a lifestyle shot of this bottle.”
 - “Poster with the exact headline: Launch Week.”
 - “Logo concept marks for a coffee brand (raster is fine).”
+- “Poster-like layout: headline band, three products, quiet footer.”
 
 If you ask for video, voiceover, 3D, upscale pipelines, or LoRA training, the foundation skill tells the agent to refuse — those tools are not on the MCP server.
 
@@ -116,13 +118,14 @@ nexllm-skills/
     logo-concepts/SKILL.md
     game-assets-2d/SKILL.md
     composite-scene/SKILL.md
+    seedream-pro-layouts/SKILL.md
   .cursor/skills/            # Cloud Agents / project discovery
     (same folders as skills/)
 ```
 
 ## Naming note
 
-Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes).
+Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes and v0.1.5 `seedream-pro-layouts`).
 
 MCP Server’s discovery sketch used shorter aliases (`nexllm-pick-model`, `nexllm-write`, `nexllm-draw`) — same outcomes, different names. **Do not rename** this pack to those aliases for v0.1; if you need mental mapping:
 

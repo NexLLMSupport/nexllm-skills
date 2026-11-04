@@ -60,6 +60,7 @@ JSON-in-text with `data[].url` or `data[].b64_json`. Arguments: `model`, `prompt
 - `product-photography` — product-led studio / lifestyle stills
 - `photoreal-stills` — realism-first look
 - `product-hero-image` — simpler hero/packshot recipe
+- `seedream-pro-layouts` — multi-element / poster-like layout stills
 - `nexllm-mcp` — foundation tools and errors
 
 ## Errors
