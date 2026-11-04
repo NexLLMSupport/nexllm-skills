@@ -60,6 +60,8 @@ JSON-in-text with `data[].url` or `data[].b64_json`. Arguments: `model`, `prompt
 ## Related skills
 
 - `logo-concepts` — mark / icon concepts (not true SVG)
+- `seedream-pro-layouts` — multi-element / poster-like layout stills
+- `image-edit-with-nexllm` — prompt-only revise (new generation, not a mask)
 - `product-photography` — product stills where text is usually avoided
 - `nexllm-mcp` — foundation tools and errors
 

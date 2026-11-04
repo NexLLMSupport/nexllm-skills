@@ -106,3 +106,8 @@ Handle **both** surfaces:
 - `logo-concepts` — logo / icon concept rasters (not true SVG)
 - `game-assets-2d` — sprites, stickers, 2D asset stills
 - `composite-scene` — prompt-only product + subject + backdrop
+- `image-edit-with-nexllm` — revise via a new `generate_image` (no mask or upload)
+- `gpt-image-25-precision` — detail-heavy stills; prefer GPT Image 2.5 after discovery
+- `nano-banana-design` — design / concept stills; prefer Gemini image after discovery
+- `fast-stickers-gemini` — fast sticker / icon / emoji stills on Gemini flash when listed
+- `seedream-pro-layouts` — layout / multi-element / poster-like stills; prefer Seedream pro

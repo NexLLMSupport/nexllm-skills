@@ -79,6 +79,8 @@ Default `response_format` is typically `url` when the server supports it; pass `
 
 - `product-hero-image` — shorter hero/packshot-focused recipe
 - `photoreal-stills` — realistic non-stock look
+- `gpt-image-25-precision` — detail-heavy stills when GPT Image 2.5 is listed
+- `image-edit-with-nexllm` — prompt-only revise (new generation, not a mask)
 - `composite-scene` — prompt-only product + subject + backdrop merge
 - `nexllm-mcp` — foundation tools and errors
 
