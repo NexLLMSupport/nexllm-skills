@@ -7,7 +7,7 @@ Copy these skill folders into wherever your agent already loads Agent Skills. Co
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.5
+git checkout v0.1.6
 ```
 
 Then use the paths below (`/path/to/nexllm-skills` = this clone).
@@ -17,7 +17,7 @@ Then use the paths below (`/path/to/nexllm-skills` = this clone).
 1. NexLLM account + API key at [www.nexllm.ai](https://www.nexllm.ai)
 2. MCP connected with OAuth key-paste on `connect.nexllm.ai`
 3. Confirm a trivial ask works (for example, “list a few models on NexLLM” → agent calls `list_models`)
-4. Wallet balance if you will run `generate_text` or `generate_image`
+4. Wallet balance if you will run `generate_text`, `generate_image`, or `generate_video`
 
 ## Claude Code
 
@@ -37,6 +37,7 @@ cp -R /path/to/nexllm-skills/skills/nexllm-mcp \
       /path/to/nexllm-skills/skills/game-assets-2d \
       /path/to/nexllm-skills/skills/composite-scene \
       /path/to/nexllm-skills/skills/seedream-pro-layouts \
+      /path/to/nexllm-skills/skills/generate-video \
       .claude/skills/
 ```
 
@@ -102,7 +103,8 @@ Pair recipes with MCP tools — skills alone do not talk to NexLLM.
 | “Sticker-style 2D game character” | `game-assets-2d` | `list_models` → `generate_image` |
 | “Product with a person in a kitchen scene” | `composite-scene` | `list_models` → `generate_image` |
 | “Poster layout with three products and a headline” | `seedream-pro-layouts` | `list_models` → `generate_image` |
-| “Make a vertical launch video with VO” | `nexllm-mcp` (refuse) | no fake tool calls |
+| “Short clip of a red ball rolling across a table” | `generate-video` | `list_models` → `generate_video` |
+| “Make a vertical launch video with voiceover” | `nexllm-mcp` (refuse the audio) | no fake audio tool |
 
 ## Updating
 

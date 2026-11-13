@@ -1,7 +1,7 @@
 {
   "name": "nexllm-skills",
-  "version": "0.1.5",
-  "description": "NexLLM MCP agent skills for model discovery, pricing, text generation, and image outcomes (product, photoreal, text-in-image, logo concepts, 2D assets, composite scenes, Seedream pro layouts).",
+  "version": "0.1.6",
+  "description": "NexLLM MCP agent skills for model discovery, pricing, text generation, image outcomes (product, photoreal, text-in-image, logo concepts, 2D assets, composite scenes, Seedream pro layouts), and short video via generate_video.",
   "author": {
     "name": "NexLLMSupport",
     "email": "support@nexllm.ai"
@@ -9,5 +9,5 @@
   "homepage": "https://docs.nexllm.ai/integrations/mcp-integration",
   "repository": "https://github.com/NexLLMSupport/nexllm-skills",
   "license": "MIT",
-  "keywords": ["nexllm", "mcp", "skills", "image", "text"]
+  "keywords": ["nexllm", "mcp", "skills", "image", "text", "video"]
 }

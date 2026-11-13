@@ -62,7 +62,8 @@ See `nexllm-mcp`: HTTP auth (`401`/`403`) vs tool codes (`INSUFFICIENT_CREDITS`,
 ## Refuse
 
 - Image generation — point the user at `product-hero-image`, `product-photography`, or other image outcome skills in this pack.
-- Video, audio, music, or 3D — those MCP tools are not available.
+- Video — point the user at `generate-video` (`generate_video`).
+- Audio, music, or 3D — those MCP tools are not available.
 - Presenting memorized model IDs as if they were verified for this key.
 - Claiming streaming output from MCP `generate_text`.
 

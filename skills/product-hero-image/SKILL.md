@@ -8,7 +8,7 @@ description: >
 
 # Product hero image
 
-Outcome skill: one strong still image for product / marketing use. Text and image only — no video.
+Outcome skill: one strong still image for product / marketing use. This skill is a still. A short MP4 is `generate-video`.
 
 ## Prerequisites
 
@@ -85,11 +85,12 @@ See `nexllm-mcp` for dual surfaces:
 - `composite-scene` — prompt-only product + subject + backdrop
 - `text-in-image` — when exact on-image copy is required
 - `seedream-pro-layouts` — multi-element / poster-like layout instead of one hero
+- `generate-video` — short MP4 via `generate_video` (this skill is a still)
 - `nexllm-mcp` — foundation tools and errors
 
 ## Refuse
 
-- Video, motion, voiceover, 3D mesh, or audio — explain those MCP tools are not available.
+- Video or motion — this skill is a still; use `generate-video`. Voiceover, 3D mesh, and audio are not on this MCP server.
 - Hardcoding a single model forever without `list_models`.
 - Claiming an MCP image content block was returned when only JSON-in-text arrived.
 
