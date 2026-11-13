@@ -9,7 +9,7 @@ description: >
 
 # Product photography
 
-Outcome skill: studio, lifestyle, and hero stills for a product. Text and image only — no video, no reference-image upload, no masking API.
+Outcome skill: studio, lifestyle, and hero stills for a product. This skill is a still — no reference-image upload, no masking API. A short MP4 is `generate-video`.
 
 ## Prerequisites
 
@@ -80,6 +80,7 @@ Default `response_format` is typically `url` when the server supports it; pass `
 - `product-hero-image` — shorter hero/packshot-focused recipe
 - `photoreal-stills` — realistic non-stock look
 - `composite-scene` — prompt-only product + subject + backdrop merge
+- `generate-video` — short MP4 via `generate_video` (this skill is a still)
 - `nexllm-mcp` — foundation tools and errors
 
 ## Errors
@@ -91,7 +92,7 @@ See `nexllm-mcp` for dual surfaces:
 
 ## Refuse
 
-- Video, motion, voiceover, 3D mesh, or audio — explain those MCP tools are not available.
+- Video or motion — this skill is a still; use `generate-video`. Voiceover, 3D mesh, and audio are not on this MCP server.
 - Claiming you uploaded or masked a real product photo — this path is **prompt-only**.
 - Hardcoding a single model forever without `list_models`.
 - Claiming an MCP image content block was returned when only JSON-in-text arrived.

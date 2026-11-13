@@ -1,6 +1,6 @@
 # nexllm-skills
 
-Thin **Agent Skills** pack for [NexLLM](https://www.nexllm.ai) — outcome recipes that call the hosted MCP server for **text and image** only.
+Thin **Agent Skills** pack for [NexLLM](https://www.nexllm.ai) — outcome recipes that call the hosted MCP server for **text, image, and short video**.
 
 Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect MCP first, then drop these folders where your agent loads skills.
 
@@ -10,15 +10,17 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | --- | --- |
 | MCP URL | `https://mcp.nexllm.ai/mcp` |
 | MCP docs | https://docs.nexllm.ai/integrations/mcp-integration |
-| Scope | `list_models`, `model_pricing`, `generate_text`, `generate_image` |
-| Version | **v0.1.5** (this tag) |
-| Not included | Video, audio, 3D, upscale/edit APIs, LoRA training, ComfyUI, marketplace plugins |
+| Scope | `list_models`, `model_pricing`, `list_capabilities`, `model_metadata`, `generate_text`, `generate_image`, `generate_video` |
+| Version | **v0.1.6** (this tag) |
+| Not included | Audio, 3D, upscale/edit APIs, LoRA training, ComfyUI, marketplace plugins |
 
 ## Skills in this pack
 
+Twelve skill folders.
+
 | Folder | Name | Outcome |
 | --- | --- | --- |
-| `skills/nexllm-mcp/` | `nexllm-mcp` | Foundation: tools, discover → price → generate, refuse video/3D/audio |
+| `skills/nexllm-mcp/` | `nexllm-mcp` | Foundation: tools, discover → price → generate; video via `generate_video`; refuse 3D/audio |
 | `skills/nexllm-models/` | `nexllm-models` | Discover / compare models and pricing |
 | `skills/draft-with-nexllm/` | `draft-with-nexllm` | Draft or rewrite text via `generate_text` |
 | `skills/product-hero-image/` | `product-hero-image` | Product / hero still via `generate_image` |
@@ -29,18 +31,19 @@ Skills are Markdown folders (`SKILL.md`). They do not replace the API. Connect M
 | `skills/game-assets-2d/` | `game-assets-2d` | Sprites, stickers, and 2D asset stills |
 | `skills/composite-scene/` | `composite-scene` | Prompt-only product + subject + backdrop (no mask API) |
 | `skills/seedream-pro-layouts/` | `seedream-pro-layouts` | Layout / multi-element / poster-like stills; prefer Seedream 5.0 pro, then lite, then flash |
+| `skills/generate-video/` | `generate-video` | Short text-to-video MP4 via `generate_video` (default 480p) |
 
-Every generate skill **requires `list_models` before hardcoding an ID**. A suggested default is used only when that exact id is in the live list for the connected key. Image skills other than `seedream-pro-layouts` still suggest `byteplus/Dola-Seedream-5.0-flash` when present. `seedream-pro-layouts` prefers `byteplus/Dola-Seedream-5.0-pro`, then a Seedream 5.0 lite id from the same list, then flash.
+Every generate skill **requires `list_models` before hardcoding an ID**. A suggested default is used only when that exact id is in the live list for the connected key. Image skills other than `seedream-pro-layouts` still suggest `byteplus/Dola-Seedream-5.0-flash` when present. `seedream-pro-layouts` prefers `byteplus/Dola-Seedream-5.0-pro`, then a Seedream 5.0 lite id from the same list, then flash. `generate-video` prefers `byteplus/ByteDance-Seedance-1.0-pro-fast` when that id is in the live list, at **480p**.
 
 ## Quick install
 
 1. Connect NexLLM MCP in your agent (OAuth key-paste on `connect.nexllm.ai`). See [MCP integration](https://docs.nexllm.ai/integrations/mcp-integration).
-2. Clone this pack at tag **`v0.1.5`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
+2. Clone this pack at tag **`v0.1.6`**, then copy skill folders into your agent’s skills directory (keep each folder’s `SKILL.md`).
 
 ```bash
 git clone https://github.com/NexLLMSupport/nexllm-skills.git
 cd nexllm-skills
-git checkout v0.1.5
+git checkout v0.1.6
 ```
 
 ### Claude Code
@@ -51,7 +54,8 @@ mkdir -p .claude/skills
 cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm \
   skills/product-hero-image skills/product-photography skills/photoreal-stills \
   skills/text-in-image skills/logo-concepts skills/game-assets-2d \
-  skills/composite-scene skills/seedream-pro-layouts .claude/skills/
+  skills/composite-scene skills/seedream-pro-layouts skills/generate-video \
+  .claude/skills/
 ```
 
 User-scoped (every project):
@@ -76,7 +80,8 @@ mkdir -p ~/.cursor/skills
 cp -R skills/nexllm-mcp skills/nexllm-models skills/draft-with-nexllm \
   skills/product-hero-image skills/product-photography skills/photoreal-stills \
   skills/text-in-image skills/logo-concepts skills/game-assets-2d \
-  skills/composite-scene skills/seedream-pro-layouts ~/.cursor/skills/
+  skills/composite-scene skills/seedream-pro-layouts skills/generate-video \
+  ~/.cursor/skills/
 ```
 
 ### Claude (Desktop / claude.ai)
@@ -96,8 +101,9 @@ With MCP connected and skills installed:
 - “Poster with the exact headline: Launch Week.”
 - “Logo concept marks for a coffee brand (raster is fine).”
 - “Poster-like layout: headline band, three products, quiet footer.”
+- “A two-second clip of a red ball rolling across a table.”
 
-If you ask for video, voiceover, 3D, upscale pipelines, or LoRA training, the foundation skill tells the agent to refuse — those tools are not on the MCP server.
+If you ask for voiceover, audio, 3D, upscale pipelines, or LoRA training, the foundation skill tells the agent to refuse — those tools are not on the MCP server. A short silent clip is `generate-video`.
 
 ## Layout
 
@@ -119,13 +125,14 @@ nexllm-skills/
     game-assets-2d/SKILL.md
     composite-scene/SKILL.md
     seedream-pro-layouts/SKILL.md
+    generate-video/SKILL.md
   .cursor/skills/            # Cloud Agents / project discovery
     (same folders as skills/)
 ```
 
 ## Naming note
 
-Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes and v0.1.5 `seedream-pro-layouts`).
+Folder names stay aligned with the Mintlify skills docs (`nexllm-mcp`, `nexllm-models`, `draft-with-nexllm`, `product-hero-image`, plus the v0.1.4 image outcomes and v0.1.5 `seedream-pro-layouts`). v0.1.6 adds `generate-video` in this pack.
 
 MCP Server’s discovery sketch used shorter aliases (`nexllm-pick-model`, `nexllm-write`, `nexllm-draw`) — same outcomes, different names. **Do not rename** this pack to those aliases for v0.1; if you need mental mapping:
 

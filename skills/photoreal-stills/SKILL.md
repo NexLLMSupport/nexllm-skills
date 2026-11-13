@@ -8,7 +8,7 @@ description: >
 
 # Photoreal stills
 
-Outcome skill: still images that read as real photographs — natural light, believable materials, restrained processing. Text and image only — no video, no reference-image upload.
+Outcome skill: still images that read as real photographs — natural light, believable materials, restrained processing. This skill is a still — no reference-image upload. A short MP4 is `generate-video`.
 
 ## Prerequisites
 
@@ -70,6 +70,7 @@ or `data: [{ "b64_json": "..." }]`. Parse JSON; prefer `url`. Arguments: `model`
 
 - `product-photography` / `product-hero-image` — product / ecommerce framing
 - `text-in-image` — when legible on-image copy is the goal instead
+- `generate-video` — short MP4 via `generate_video` (this skill is a still)
 - `nexllm-mcp` — foundation tools and errors
 
 ## Errors
@@ -78,7 +79,7 @@ See `nexllm-mcp` (HTTP `401`/`403` vs tool codes such as `INSUFFICIENT_CREDITS`,
 
 ## Refuse
 
-- Video, audio, 3D, or voiceover.
+- Video — this skill is a still; use `generate-video`. Audio, 3D, and voiceover are not on this MCP server.
 - Claiming photoreal output of a real identifiable private person from a photo upload (no image input exists).
 - Hardcoding a model without `list_models`.
 
